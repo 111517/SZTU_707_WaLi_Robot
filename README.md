@@ -12,6 +12,8 @@
 
 ## 目录结构
 
+```text
+.
 ├── unitree_go2/        # Unitree Go2 相关代码
 ├── turtlebot4/         # TurtleBot4 相关代码
 ├── robotic_arm/        # 机械臂相关代码
