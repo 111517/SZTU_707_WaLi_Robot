@@ -1,0 +1,17 @@
+[Unit]
+Description=TurtleBot4 Nav2 Navigation
+After=turtlebot4.service
+Requires=turtlebot4.service
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/bin/bash /home/ubuntu/tb4_nav2/nav2_bringup.sh
+ExecStop=/bin/bash -c 'pkill -f "localization.launch.py" 2>/dev/null; pkill -f "nav2.launch.py" 2>/dev/null; pkill -f "/nav2_" 2>/dev/null; pkill -f "/amcl" 2>/dev/null; pkill -f "/map_server" 2>/dev/null; sleep 2'
+Restart=on-failure
+RestartSec=10
+KillMode=process
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target

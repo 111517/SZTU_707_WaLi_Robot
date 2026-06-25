@@ -1,0 +1,20 @@
+[Unit]
+Description=TurtleBot4 Nav2 Bridge
+After=network.target
+
+[Service]
+Type=simple
+User=jetson
+WorkingDirectory=/home/jetson/turtlebot4_auto_control
+Environment="HOME=/home/jetson"
+Environment="ROS_DISCOVERY_SERVER=192.168.1.5:11811"
+Environment="ROS_DOMAIN_ID=0"
+ExecStart=/bin/bash /home/jetson/turtlebot4_auto_control/scripts/start_bridge.sh
+ExecStop=/bin/bash -c 'pkill -f "openclaw_nav2_bridge.py"'
+Restart=on-failure
+RestartSec=10
+KillMode=process
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

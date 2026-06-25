@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# Runtime
+*.log
+*.pid
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large files - DO NOT commit to GitHub per submission rules
+*.bag
+*.pth
+*.pt
+*.onnx
+*.weights
+*.ckpt
+*.h5
+*.pb
+*.tflite
+*.tar
+*.tar.gz
+*.zip
+*.7z
+*.rar
+
+# Media (large video captures)
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# ROS
+build/
+install/
+log/
