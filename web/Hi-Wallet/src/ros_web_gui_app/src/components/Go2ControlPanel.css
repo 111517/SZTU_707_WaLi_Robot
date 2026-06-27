@@ -1,0 +1,351 @@
+.Go2ControlPanel {
+  position: absolute;
+  top: 72px;
+  right: 12px;
+  width: 440px;
+  max-width: calc(100% - 24px);
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  z-index: 30;
+  pointer-events: auto;
+  box-shadow: var(--shadow-hover);
+  padding: 16px;
+  max-height: calc(100% - 120px);
+  overflow-y: auto;
+}
+
+.Go2ControlHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.Go2ControlHeaderText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.Go2ControlHeaderText > span:first-child {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.Go2ControlHeaderSubtext {
+  color: var(--text3);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.Go2ControlCloseButton {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text2);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.Go2ControlCloseButton:hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+.Go2ControlBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.Go2ControlHint {
+  color: var(--text2);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.Go2ControlCode {
+  font-family: 'DM Mono', monospace;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.Go2StatusStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.Go2StatusChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text2);
+}
+
+.Go2StatusChip.ok {
+  background: var(--green-bg);
+  border-color: rgba(22, 163, 74, 0.3);
+  color: var(--green);
+}
+
+.Go2StatusChip.warn {
+  background: var(--amber-bg);
+  border-color: rgba(217, 119, 6, 0.3);
+  color: var(--amber);
+}
+
+.Go2ControlSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Go2ControlSectionTitle {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.Go2ParamHint {
+  color: var(--text3);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.Go2PresetRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.Go2MiniButton {
+  min-height: 30px;
+  padding: 6px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+  font-size: 12px;
+  font-family: inherit;
+}
+
+.Go2MiniButton.Primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.Go2MiniButton:hover {
+  background: var(--surface2);
+  border-color: var(--border2);
+}
+
+.Go2MiniButton.Primary:hover {
+  background: #1d4ed8;
+}
+
+.Go2SliderGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Go2SliderRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text2);
+  font-size: 12px;
+}
+
+.Go2SliderValueRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 78px;
+  gap: 8px;
+  align-items: center;
+}
+
+.Go2RangeInput {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.Go2NumberInput,
+.Go2Textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 10px;
+  font-size: 12px;
+  font-family: inherit;
+}
+
+.Go2NumberInput:focus,
+.Go2Textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-bg);
+}
+
+.Go2Textarea {
+  resize: vertical;
+  min-height: 140px;
+  font-family: 'DM Mono', monospace;
+  line-height: 1.35;
+}
+
+.Go2CustomRequestGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 180px) minmax(0, 1fr);
+  gap: 10px;
+}
+
+.Go2CustomField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text2);
+  font-size: 12px;
+}
+
+.Go2CustomFieldWide {
+  grid-column: 1 / -1;
+}
+
+.Go2CapabilityList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Go2CapabilityRow {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--surface2);
+  color: var(--text);
+  font-size: 12px;
+}
+
+.Go2CapabilityRow span:last-child {
+  color: var(--text2);
+}
+
+.Go2CapabilityRow.ok {
+  border: 1px solid rgba(22, 163, 74, 0.28);
+}
+
+.Go2CapabilityRow.warn {
+  border: 1px solid rgba(217, 119, 6, 0.26);
+}
+
+.Go2ActionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.Go2ActionButton,
+.Go2MoveButton,
+.Go2TurnButton {
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+  font-family: inherit;
+}
+
+.Go2ActionButton {
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.Go2ActionButton:hover,
+.Go2MoveButton:hover,
+.Go2TurnButton:hover {
+  background: var(--surface2);
+  border-color: var(--border2);
+}
+
+.Go2ActionButton.Secondary {
+  background: var(--surface2);
+  color: var(--text2);
+}
+
+.Go2ActionButton.Danger {
+  background: var(--red);
+  color: white;
+  border-color: var(--red);
+}
+
+.Go2ActionButton.Danger:hover {
+  background: #b91c1c;
+}
+
+.Go2MoveGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.Go2MoveGrid > div {
+  min-height: 46px;
+}
+
+.Go2MoveButton {
+  min-height: 46px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.Go2MoveButton.Center {
+  font-size: 16px;
+  letter-spacing: 0.1em;
+}
+
+.Go2TurnRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.Go2TurnButton {
+  min-height: 40px;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.Go2ActionButton:disabled,
+.Go2MoveButton:disabled,
+.Go2TurnButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

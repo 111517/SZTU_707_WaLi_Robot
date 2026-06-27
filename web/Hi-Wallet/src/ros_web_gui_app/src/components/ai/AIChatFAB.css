@@ -1,0 +1,128 @@
+.ai-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: var(--ai-fab-size);
+  height: var(--ai-fab-size);
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07), 0 4px 16px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  z-index: 9997;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  animation: fabEnter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.ai-fab--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.ai-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Connected breathing ──────────────────────────── */
+.ai-fab--connected {
+  animation: fabEnter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+             fabBreathe 3s ease-in-out infinite;
+}
+
+.ai-fab--connecting {
+  border-color: var(--amber);
+}
+
+/* ── Robot face ───────────────────────────────────── */
+.ai-fab-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.ai-fab-eyes {
+  display: flex;
+  gap: 7px;
+  transition: gap 0.28s ease;
+}
+
+.ai-fab-eye {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text3);
+  transition: background 0.28s ease;
+}
+
+.ai-fab--connected .ai-fab-eye {
+  background: var(--green);
+}
+
+.ai-fab--connecting .ai-fab-eye {
+  background: var(--amber);
+  animation: dotPulse 1s ease-in-out infinite;
+}
+
+.ai-fab:hover .ai-fab-eye {
+  background: var(--accent);
+}
+
+.ai-fab--connected:hover .ai-fab-eye {
+  background: var(--green);
+}
+
+.ai-fab-mouth {
+  width: 10px;
+  height: 4px;
+  border: 1.5px solid var(--text3);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  transition: border-color 0.28s ease, width 0.28s ease;
+}
+
+.ai-fab--connected .ai-fab-mouth {
+  border-color: var(--green);
+}
+
+.ai-fab--connecting .ai-fab-mouth {
+  border-color: var(--amber);
+}
+
+.ai-fab:hover .ai-fab-mouth {
+  width: 14px;
+  border-color: var(--accent);
+}
+
+.ai-fab--connected:hover .ai-fab-mouth {
+  border-color: var(--green);
+}
+
+/* ── Notification dot ─────────────────────────────── */
+.ai-fab-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.ai-fab-dot--amber {
+  background: var(--amber);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.8); }
+}
