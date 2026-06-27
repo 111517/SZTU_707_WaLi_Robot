@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f5f4f1;
+  --surface: #ffffff;
+  --surface2: #f0efe9;
+  --border: rgba(0, 0, 0, 0.08);
+  --border2: rgba(0, 0, 0, 0.14);
+  --text: #1a1917;
+  --text2: #6b6860;
+  --text3: #9e9b94;
+  --accent: #2563eb;
+  --accent-bg: #eff6ff;
+  --green: #16a34a;
+  --green-bg: #f0fdf4;
+  --amber: #d97706;
+  --amber-bg: #fffbeb;
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+  --tb4: #2563eb;
+  --go2: #16a34a;
+  --drone: #7c3aed;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.07), 0 4px 16px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.08);
+  --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.8); }
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── AI Chat 扩展 Token ─────────────────────────────── */
+:root {
+  --ai-glass: rgba(255, 252, 247, 0.88);
+  --ai-glass-border: rgba(0, 0, 0, 0.06);
+  --ai-glass-shadow: 0 4px 32px rgba(0, 0, 0, 0.12),
+                     0 0 0 1px rgba(0, 0, 0, 0.04);
+  --ai-glow: 0 0 24px rgba(37, 99, 235, 0.2);
+  --ai-glow-connected: 0 0 20px rgba(22, 163, 74, 0.25);
+  --ai-bubble-user: linear-gradient(135deg, #2563eb, #1d4ed8);
+  --ai-bubble-ai: #f0efe9;
+  --ai-code-surface: #1a1917;
+  --ai-code-text: #e5e3dc;
+  --ai-fab-size: 56px;
+  --ai-dialog-width: 480px;
+  --ai-dialog-height: 680px;
+  --ai-header-height: 48px;
+  --ai-footer-height: 64px;
+}
+
+@keyframes fabEnter {
+  from { opacity: 0; transform: translateY(20px) scale(0.8); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fabBreathe {
+  0%, 100% { box-shadow: 0 2px 8px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.05), 0 0 0 0 rgba(22,163,74,0.25); transform: scale(1); }
+  50%      { box-shadow: 0 2px 8px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.05), 0 0 24px rgba(22,163,74,0.12); transform: scale(1.02); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(0.5); opacity: 0.3; }
+  50%      { transform: scale(1); opacity: 1; }
+}
