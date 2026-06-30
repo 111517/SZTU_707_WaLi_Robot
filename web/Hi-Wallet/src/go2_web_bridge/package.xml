@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>go2_web_bridge</name>
+  <version>1.0.0</version>
+  <description>Minimal bridge + launch for Go2 web dashboard. Converts unitree_go types to standard ROS2 and starts rosbridge.</description>
+  <maintainer email="user@example.com">Go2 Web Dashboard</maintainer>
+  <license>BSD</license>
+
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>diagnostic_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>go2_interfaces</depend>
+  <depend>robot_state_publisher</depend>
+
+  <!-- rosbridge is a system-level exec_depend, not needed at build time -->
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

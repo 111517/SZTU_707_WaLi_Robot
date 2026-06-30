@@ -1,0 +1,134 @@
+.connection-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 24px;
+}
+
+.connection-card {
+  background: var(--surface);
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 420px;
+}
+
+.connection-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.connection-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.connection-logo-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.connection-logo-sub {
+  font-size: 12px;
+  color: var(--text3);
+}
+
+.connection-form-group {
+  margin-bottom: 20px;
+}
+
+.connection-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text2);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.connection-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--surface);
+  color: var(--text);
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+.connection-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.connection-input:disabled {
+  background: var(--surface2);
+  cursor: not-allowed;
+}
+
+.connection-error {
+  color: var(--red);
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: var(--red-bg);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+
+.connection-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.connection-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border2);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.connection-btn.primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.connection-btn.primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.connection-btn.secondary {
+  background: var(--surface);
+  color: var(--text2);
+}
+
+.connection-btn.secondary:hover:not(:disabled) {
+  background: var(--surface2);
+}
+
+.connection-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
