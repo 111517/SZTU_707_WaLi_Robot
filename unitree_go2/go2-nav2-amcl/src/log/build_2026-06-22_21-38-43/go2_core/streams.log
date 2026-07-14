@@ -1,0 +1,27 @@
+[6.918s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core -- -j6 -l6
+[7.281s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core -- -j6 -l6
+[7.292s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core
+[7.361s] -- Install configuration: ""
+[7.362s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/launch
+[7.362s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/launch/go2_robot_localization.launch.py
+[7.362s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/launch/go2_start.launch.py
+[7.362s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/rviz2
+[7.362s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/rviz2/display.rviz
+[7.362s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/config
+[7.362s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/config/go2_ekf_params.yaml
+[7.362s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/ament_index/resource_index/package_run_dependencies/go2_core
+[7.363s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/ament_index/resource_index/parent_prefix_path/go2_core
+[7.363s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/environment/ament_prefix_path.sh
+[7.363s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/environment/ament_prefix_path.dsv
+[7.363s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/environment/path.sh
+[7.363s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/environment/path.dsv
+[7.363s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/local_setup.bash
+[7.363s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/local_setup.sh
+[7.363s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/local_setup.zsh
+[7.364s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/local_setup.dsv
+[7.364s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.dsv
+[7.364s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/ament_index/resource_index/packages/go2_core
+[7.364s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/cmake/go2_coreConfig.cmake
+[7.364s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/cmake/go2_coreConfig-version.cmake
+[7.364s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.xml
+[7.365s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core

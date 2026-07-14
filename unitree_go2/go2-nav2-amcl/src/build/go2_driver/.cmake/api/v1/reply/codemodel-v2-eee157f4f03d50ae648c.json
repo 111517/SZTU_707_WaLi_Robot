@@ -1,0 +1,97 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-93cfce08731bf74b84b0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "go2_driver",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "driver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-driver-25ad1a01093c3ac42abe.json",
+					"name" : "driver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "footprint_to_link::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-footprint_to_link-f1818d5c621a2b60bdbf.json",
+					"name" : "footprint_to_link",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_driver_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_driver_uninstall-6c21e7d1ad2f380d4b7a.json",
+					"name" : "go2_driver_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lowstate_to_imu::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lowstate_to_imu-6331a4eb71ce5a2f8afa.json",
+					"name" : "lowstate_to_imu",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-a24a7c3d44a9e6f04155.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_driver",
+		"source" : "/home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_driver"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

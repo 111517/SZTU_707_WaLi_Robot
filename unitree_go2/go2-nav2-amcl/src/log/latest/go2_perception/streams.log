@@ -1,0 +1,10 @@
+[2.854s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception -- -j6 -l6
+[3.179s] [ 16%] [32mBuilding CXX object CMakeFiles/pointcloud_to_laserscan.dir/src/pointcloud_to_laserscan_node.cpp.o[0m
+[4.639s] [01m[K/home/unitree/new_daohan/go2-nav2-amcl/src/go2_perception/src/pointcloud_to_laserscan_node.cpp:52:10:[m[K [01;31m[Kfatal error: [m[Ktf2_sensor_msgs/tf2_sensor_msgs.hpp: 没有那个文件或目录
+[4.640s]    52 | #include [01;31m[K"tf2_sensor_msgs/tf2_sensor_msgs.hpp"[m[K
+[4.640s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.642s] compilation terminated.
+[4.647s] make[2]: *** [CMakeFiles/pointcloud_to_laserscan.dir/build.make:76：CMakeFiles/pointcloud_to_laserscan.dir/src/pointcloud_to_laserscan_node.cpp.o] 错误 1
+[4.648s] make[1]: *** [CMakeFiles/Makefile2:141：CMakeFiles/pointcloud_to_laserscan.dir/all] 错误 2
+[4.648s] make: *** [Makefile:146：all] 错误 2
+[6.819s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception -- -j6 -l6

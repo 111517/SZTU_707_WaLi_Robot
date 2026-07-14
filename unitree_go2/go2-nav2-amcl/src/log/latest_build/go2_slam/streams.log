@@ -1,0 +1,23 @@
+[1.384s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam -- -j6 -l6
+[5.108s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam -- -j6 -l6
+[5.112s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam
+[5.765s] -- Install configuration: ""
+[5.769s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/launch
+[5.770s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/launch/go2_slamtoolbox.launch.py
+[5.770s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/config
+[5.770s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/config/mapper_params_online_async.yaml
+[5.774s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/ament_index/resource_index/package_run_dependencies/go2_slam
+[5.777s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/ament_index/resource_index/parent_prefix_path/go2_slam
+[5.777s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/environment/ament_prefix_path.sh
+[5.777s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/environment/ament_prefix_path.dsv
+[5.778s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/environment/path.sh
+[5.778s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/environment/path.dsv
+[5.778s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/local_setup.bash
+[5.778s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/local_setup.sh
+[5.795s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/local_setup.zsh
+[5.796s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/local_setup.dsv
+[5.797s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/package.dsv
+[5.797s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/ament_index/resource_index/packages/go2_slam
+[5.797s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/cmake/go2_slamConfig.cmake
+[5.801s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/cmake/go2_slamConfig-version.cmake
+[5.804s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/package.xml

@@ -1,0 +1,92 @@
+[5.143s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake /home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_core -DCMAKE_INSTALL_PREFIX=/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core
+[5.388s] -- The C compiler identification is GNU 9.4.0
+[5.554s] -- The CXX compiler identification is GNU 9.4.0
+[5.591s] -- Detecting C compiler ABI info
+[5.791s] -- Detecting C compiler ABI info - done
+[5.842s] -- Check for working C compiler: /usr/bin/cc - skipped
+[5.842s] -- Detecting C compile features
+[5.843s] -- Detecting C compile features - done
+[5.843s] -- Detecting CXX compiler ABI info
+[6.067s] -- Detecting CXX compiler ABI info - done
+[6.101s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[6.105s] -- Detecting CXX compile features
+[6.105s] -- Detecting CXX compile features - done
+[6.119s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[6.142s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[6.142s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[6.142s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[6.142s]   the cmake_policy command to set the policy and suppress this warning.
+[6.143s] 
+[6.143s] Call Stack (most recent call first):
+[6.143s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[6.143s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[6.143s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[6.143s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[6.144s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[6.144s]   CMakeLists.txt:9 (find_package)
+[6.144s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[6.144s] [0m
+[6.221s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3")
+[6.221s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[6.899s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[7.159s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[7.208s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[7.585s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")
+[7.678s] -- Found FastRTPS: /opt/ros/foxy/include
+[7.894s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[8.058s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[8.063s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[8.066s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[8.291s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[8.291s] -- Looking for pthread_create in pthreads
+[8.507s] -- Looking for pthread_create in pthreads - not found
+[8.508s] -- Looking for pthread_create in pthread
+[8.690s] -- Looking for pthread_create in pthread - found
+[8.694s] -- Found Threads: TRUE
+[9.109s] -- Found unitree_go: 0.0.0 (/home/unitree/go2_ros2_ws/install/unitree_go/share/unitree_go/cmake)
+[9.378s] -- Found unitree_api: 0.0.0 (/home/unitree/go2_ros2_ws/install/unitree_api/share/unitree_api/cmake)
+[9.616s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[9.895s] -- Found tf2: 0.13.14 (/opt/ros/foxy/share/tf2/cmake)
+[9.954s] -- Found tf2_ros: 0.13.14 (/opt/ros/foxy/share/tf2_ros/cmake)
+[10.747s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[10.911s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[11.319s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[11.328s] -- Configured cppcheck include dirs: 
+[11.329s] -- Configured cppcheck exclude dirs and/or files: 
+[11.329s] -- Added test 'flake8' to check Python code syntax and style conventions
+[11.342s] -- Added test 'lint_cmake' to check CMake code style
+[11.356s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[11.360s] -- Added test 'uncrustify' to check C / C++ code style
+[11.362s] -- Configured uncrustify additional arguments: 
+[11.363s] -- Added test 'xmllint' to check XML markup files
+[11.363s] -- Configuring done (6.2s)
+[11.380s] -- Generating done (0.0s)
+[11.384s] -- Build files have been written to: /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core
+[12.332s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake /home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_core -DCMAKE_INSTALL_PREFIX=/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core
+[12.339s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core -- -j6 -l6
+[12.518s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core -- -j6 -l6
+[12.520s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core
+[12.556s] -- Install configuration: ""
+[12.560s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/launch
+[12.560s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/launch/go2_robot_localization.launch.py
+[12.562s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/launch/go2_start.launch.py
+[12.563s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/rviz2
+[12.563s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/rviz2/display.rviz
+[12.564s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/config
+[12.564s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/config/go2_ekf_params.yaml
+[12.566s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/ament_index/resource_index/package_run_dependencies/go2_core
+[12.566s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/ament_index/resource_index/parent_prefix_path/go2_core
+[12.568s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/environment/ament_prefix_path.sh
+[12.569s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/environment/ament_prefix_path.dsv
+[12.569s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/environment/path.sh
+[12.569s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/environment/path.dsv
+[12.570s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/local_setup.bash
+[12.572s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/local_setup.sh
+[12.573s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/local_setup.zsh
+[12.574s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/local_setup.dsv
+[12.574s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.dsv
+[12.575s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/ament_index/resource_index/packages/go2_core
+[12.576s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/cmake/go2_coreConfig.cmake
+[12.576s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/cmake/go2_coreConfig-version.cmake
+[12.577s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.xml
+[12.580s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core

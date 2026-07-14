@@ -1,0 +1,36 @@
+重启接口网页（已更新）
+sudo fuser -k 8001/tcp
+systemctl --user restart go2-http
+
+
+重启相机和检测服务
+systemctl --user restart realsense.service
+sleep 5
+ros2 run web_video_server web_video_server --ros-args \-p port:=7654
+
+
+
+新导航
+ros2 launch go2_navigation2 go2_nav2.launch.py
+附加自己的地图
+ros2 launch go2_navigation2 go2_nav2.launch.py map:=/home/unitree/go2_maps/707_1__map.yaml
+
+导航
+unset ROS_DISTRO ROS_VERSION ROS_PYTHON_VERSION ROS_LOCALHOST_ONLY ROS_DOMAIN_ID
+unset RMW_IMPLEMENTATION CYCLONEDDS_URI
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export CYCLONEDDS_URI='<CycloneDDS><Domain><General><Interfaces><NetworkInterface name="eth0"/></Interfaces></General></Domain></CycloneDDS>'
+source /opt/ros/foxy/setup.bash
+source ~/unitree_ros2/install/setup.bash
+source ~/go2_ros2_ws/install/setup.bash
+ros2 launch go2_core go2_nav.launch.py
+
+建图
+unset ROS_DISTRO ROS_VERSION ROS_PYTHON_VERSION ROS_LOCALHOST_ONLY ROS_DOMAIN_ID
+unset RMW_IMPLEMENTATION CYCLONEDDS_URI
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export CYCLONEDDS_URI='<CycloneDDS><Domain><General><Interfaces><NetworkInterface name="eth0"/></Interfaces></General></Domain></CycloneDDS>'
+source /opt/ros/foxy/setup.bash
+source ~/unitree_ros2/install/setup.bash
+source ~/go2_ros2_ws/install/setup.bash
+ros2 launch go2_core go2_startup.launch.py

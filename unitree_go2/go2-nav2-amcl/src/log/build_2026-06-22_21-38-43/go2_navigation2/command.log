@@ -1,0 +1,3 @@
+Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2 -- -j6 -l6
+Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2 -- -j6 -l6
+Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2

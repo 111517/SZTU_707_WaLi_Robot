@@ -1,0 +1,29 @@
+[3.957s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2 -- -j6 -l6
+[4.275s] [100%] Built target navigation
+[7.824s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2 -- -j6 -l6
+[7.832s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2
+[8.559s] -- Install configuration: ""
+[8.559s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/lib/go2_navigation2/navigation
+[8.559s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/launch
+[8.560s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/launch/go2_nav2.launch.py
+[8.561s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/config
+[8.561s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/config/nav2_params.yaml
+[8.563s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/maps
+[8.564s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/maps/README.md
+[8.565s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/maps/my_room.pgm
+[8.565s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/maps/my_room.yaml
+[8.566s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/ament_index/resource_index/package_run_dependencies/go2_navigation2
+[8.567s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/ament_index/resource_index/parent_prefix_path/go2_navigation2
+[8.567s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/environment/ament_prefix_path.sh
+[8.567s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/environment/ament_prefix_path.dsv
+[8.568s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/environment/path.sh
+[8.568s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/environment/path.dsv
+[8.569s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/local_setup.bash
+[8.569s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/local_setup.sh
+[8.569s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/local_setup.zsh
+[8.569s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/local_setup.dsv
+[8.569s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/package.dsv
+[8.571s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/ament_index/resource_index/packages/go2_navigation2
+[8.571s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/cmake/go2_navigation2Config.cmake
+[8.572s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/cmake/go2_navigation2Config-version.cmake
+[8.572s] -- Up-to-date: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2/share/go2_navigation2/package.xml
