@@ -1,0 +1,349 @@
+[7.201s] [34mcolcon[0m [1;30mDEBUG[0m [32mCommand line arguments: ['/usr/bin/colcon', 'build'][0m
+[7.201s] [34mcolcon[0m [1;30mDEBUG[0m [32mParsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff9f9d5700>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=6, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff9f9d5700>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff9f604040>)[0m
+[7.668s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) check parameters
+[7.669s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) check parameters
+[7.669s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) check parameters
+[7.669s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) check parameters
+[7.669s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) discover
+[7.669s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) discover
+[7.669s] [34mcolcon.colcon_core.package_discovery[0m [1;30mINFO[0m Crawling recursively for packages in '/home/unitree/new_daohan/go2-nav2-amcl/src'
+[7.669s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ignore', 'ignore_ament_install']
+[7.670s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore'
+[7.670s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore_ament_install'
+[7.670s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_pkg']
+[7.670s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_pkg'
+[7.670s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_meta']
+[7.670s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_meta'
+[7.671s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ros']
+[7.671s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ros'
+[7.774s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['cmake', 'python']
+[7.774s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'cmake'
+[7.774s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python'
+[7.774s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['python_setup_py']
+[7.774s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python_setup_py'
+[7.775s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extensions ['ignore', 'ignore_ament_install']
+[7.775s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extension 'ignore'
+[7.775s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extension 'ignore_ament_install'
+[7.775s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extensions ['colcon_pkg']
+[7.775s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extension 'colcon_pkg'
+[7.775s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extensions ['colcon_meta']
+[7.775s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extension 'colcon_meta'
+[7.775s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extensions ['ros']
+[7.775s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extension 'ros'
+[7.776s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extensions ['cmake', 'python']
+[7.776s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extension 'cmake'
+[7.776s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extension 'python'
+[7.776s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extensions ['python_setup_py']
+[7.776s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base) by extension 'python_setup_py'
+[7.776s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_core) by extensions ['ignore', 'ignore_ament_install']
+[7.777s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_core) by extension 'ignore'
+[7.777s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_core) by extension 'ignore_ament_install'
+[7.777s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_core) by extensions ['colcon_pkg']
+[7.777s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_core) by extension 'colcon_pkg'
+[7.777s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_core) by extensions ['colcon_meta']
+[7.777s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_core) by extension 'colcon_meta'
+[7.778s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_core) by extensions ['ros']
+[7.778s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_core) by extension 'ros'
+[7.788s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'base/go2_core' with type 'ros.ament_cmake' and name 'go2_core'[0m
+[7.789s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_driver) by extensions ['ignore', 'ignore_ament_install']
+[7.789s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_driver) by extension 'ignore'
+[7.789s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_driver) by extension 'ignore_ament_install'
+[7.790s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_driver) by extensions ['colcon_pkg']
+[7.790s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_driver) by extension 'colcon_pkg'
+[7.790s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_driver) by extensions ['colcon_meta']
+[7.790s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_driver) by extension 'colcon_meta'
+[7.790s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_driver) by extensions ['ros']
+[7.790s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_driver) by extension 'ros'
+[7.794s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'base/go2_driver' with type 'ros.ament_cmake' and name 'go2_driver'[0m
+[7.794s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_twist_bridge) by extensions ['ignore', 'ignore_ament_install']
+[7.794s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_twist_bridge) by extension 'ignore'
+[7.795s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_twist_bridge) by extension 'ignore_ament_install'
+[7.795s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_twist_bridge) by extensions ['colcon_pkg']
+[7.795s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_twist_bridge) by extension 'colcon_pkg'
+[7.795s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_twist_bridge) by extensions ['colcon_meta']
+[7.795s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_twist_bridge) by extension 'colcon_meta'
+[7.795s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_twist_bridge) by extensions ['ros']
+[7.795s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(base/go2_twist_bridge) by extension 'ros'
+[7.797s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'base/go2_twist_bridge' with type 'ros.ament_cmake' and name 'go2_twist_bridge'[0m
+[7.798s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extensions ['ignore', 'ignore_ament_install']
+[7.798s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extension 'ignore'
+[7.798s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) ignored
+[7.798s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_description) by extensions ['ignore', 'ignore_ament_install']
+[7.799s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_description) by extension 'ignore'
+[7.799s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_description) by extension 'ignore_ament_install'
+[7.799s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_description) by extensions ['colcon_pkg']
+[7.799s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_description) by extension 'colcon_pkg'
+[7.799s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_description) by extensions ['colcon_meta']
+[7.799s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_description) by extension 'colcon_meta'
+[7.799s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_description) by extensions ['ros']
+[7.799s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_description) by extension 'ros'
+[7.801s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'go2_description' with type 'ros.ament_cmake' and name 'go2_description'[0m
+[7.801s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_navigation2) by extensions ['ignore', 'ignore_ament_install']
+[7.802s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_navigation2) by extension 'ignore'
+[7.802s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_navigation2) by extension 'ignore_ament_install'
+[7.802s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_navigation2) by extensions ['colcon_pkg']
+[7.802s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_navigation2) by extension 'colcon_pkg'
+[7.802s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_navigation2) by extensions ['colcon_meta']
+[7.802s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_navigation2) by extension 'colcon_meta'
+[7.802s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_navigation2) by extensions ['ros']
+[7.803s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_navigation2) by extension 'ros'
+[7.804s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'go2_navigation2' with type 'ros.ament_cmake' and name 'go2_navigation2'[0m
+[7.805s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_perception) by extensions ['ignore', 'ignore_ament_install']
+[7.805s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_perception) by extension 'ignore'
+[7.805s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_perception) by extension 'ignore_ament_install'
+[7.806s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_perception) by extensions ['colcon_pkg']
+[7.806s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_perception) by extension 'colcon_pkg'
+[7.806s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_perception) by extensions ['colcon_meta']
+[7.806s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_perception) by extension 'colcon_meta'
+[7.806s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_perception) by extensions ['ros']
+[7.806s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_perception) by extension 'ros'
+[7.808s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'go2_perception' with type 'ros.ament_cmake' and name 'go2_perception'[0m
+[7.808s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_slam) by extensions ['ignore', 'ignore_ament_install']
+[7.809s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_slam) by extension 'ignore'
+[7.809s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_slam) by extension 'ignore_ament_install'
+[7.809s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_slam) by extensions ['colcon_pkg']
+[7.809s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_slam) by extension 'colcon_pkg'
+[7.809s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_slam) by extensions ['colcon_meta']
+[7.809s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_slam) by extension 'colcon_meta'
+[7.809s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_slam) by extensions ['ros']
+[7.810s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(go2_slam) by extension 'ros'
+[7.811s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'go2_slam' with type 'ros.ament_cmake' and name 'go2_slam'[0m
+[7.812s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extensions ['ignore', 'ignore_ament_install']
+[7.812s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extension 'ignore'
+[7.812s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) ignored
+[7.812s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extensions ['ignore', 'ignore_ament_install']
+[7.813s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extension 'ignore'
+[7.813s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) ignored
+[7.813s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) using defaults
+[7.813s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) discover
+[7.813s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) using defaults
+[7.813s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) discover
+[7.814s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) using defaults
+[8.391s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) check parameters
+[8.392s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) discover
+[8.661s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 6 installed packages in /home/unitree/unitree_ros2/install[0m
+[8.799s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 8 installed packages in /home/unitree/go2_ros2_ws/install[0m
+[8.902s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 5 installed packages in /home/unitree/unitree_ros2/cyclonedds_ws/install[0m
+[8.997s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 2 installed packages in /home/unitree/cyclonedds_ws/install[0m
+[9.179s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 3 installed packages in /home/unitree/realsense_ws/install[0m
+[9.472s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 257 installed packages in /opt/ros/foxy[0m
+[9.500s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) using defaults
+[10.425s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_core' build argument 'cmake_args' from command line to 'None'
+[10.425s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_core' build argument 'cmake_target' from command line to 'None'
+[10.425s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_core' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[10.425s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_core' build argument 'cmake_clean_cache' from command line to 'False'
+[10.425s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_core' build argument 'cmake_clean_first' from command line to 'False'
+[10.425s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_core' build argument 'cmake_force_configure' from command line to 'False'
+[10.425s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_core' build argument 'ament_cmake_args' from command line to 'None'
+[10.425s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_core' build argument 'catkin_cmake_args' from command line to 'None'
+[10.425s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_core' build argument 'catkin_skip_building_tests' from command line to 'False'
+[10.426s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'go2_core' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core', 'merge_install': False, 'path': '/home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_core', 'symlink_install': False, 'test_result_base': None}[0m
+[10.528s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_description' build argument 'cmake_args' from command line to 'None'
+[10.528s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_description' build argument 'cmake_target' from command line to 'None'
+[10.528s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[10.528s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_description' build argument 'cmake_clean_cache' from command line to 'False'
+[10.528s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_description' build argument 'cmake_clean_first' from command line to 'False'
+[10.528s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_description' build argument 'cmake_force_configure' from command line to 'False'
+[10.528s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_description' build argument 'ament_cmake_args' from command line to 'None'
+[10.528s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_description' build argument 'catkin_cmake_args' from command line to 'None'
+[10.528s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[10.528s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'go2_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description', 'merge_install': False, 'path': '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_description', 'symlink_install': False, 'test_result_base': None}[0m
+[10.632s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_driver' build argument 'cmake_args' from command line to 'None'
+[10.633s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_driver' build argument 'cmake_target' from command line to 'None'
+[10.633s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_driver' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[10.633s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_driver' build argument 'cmake_clean_cache' from command line to 'False'
+[10.633s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_driver' build argument 'cmake_clean_first' from command line to 'False'
+[10.633s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_driver' build argument 'cmake_force_configure' from command line to 'False'
+[10.633s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_driver' build argument 'ament_cmake_args' from command line to 'None'
+[10.633s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_driver' build argument 'catkin_cmake_args' from command line to 'None'
+[10.633s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_driver' build argument 'catkin_skip_building_tests' from command line to 'False'
+[10.633s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'go2_driver' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_driver', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver', 'merge_install': False, 'path': '/home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_driver', 'symlink_install': False, 'test_result_base': None}[0m
+[10.740s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_navigation2' build argument 'cmake_args' from command line to 'None'
+[10.740s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_navigation2' build argument 'cmake_target' from command line to 'None'
+[10.740s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_navigation2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[10.740s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_navigation2' build argument 'cmake_clean_cache' from command line to 'False'
+[10.740s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_navigation2' build argument 'cmake_clean_first' from command line to 'False'
+[10.740s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_navigation2' build argument 'cmake_force_configure' from command line to 'False'
+[10.740s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_navigation2' build argument 'ament_cmake_args' from command line to 'None'
+[10.740s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_navigation2' build argument 'catkin_cmake_args' from command line to 'None'
+[10.740s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_navigation2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[10.740s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'go2_navigation2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_navigation2', 'merge_install': False, 'path': '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_navigation2', 'symlink_install': False, 'test_result_base': None}[0m
+[10.885s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_perception' build argument 'cmake_args' from command line to 'None'
+[10.886s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_perception' build argument 'cmake_target' from command line to 'None'
+[10.886s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_perception' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[10.886s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_perception' build argument 'cmake_clean_cache' from command line to 'False'
+[10.886s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_perception' build argument 'cmake_clean_first' from command line to 'False'
+[10.886s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_perception' build argument 'cmake_force_configure' from command line to 'False'
+[10.886s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_perception' build argument 'ament_cmake_args' from command line to 'None'
+[10.886s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_perception' build argument 'catkin_cmake_args' from command line to 'None'
+[10.886s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_perception' build argument 'catkin_skip_building_tests' from command line to 'False'
+[10.886s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'go2_perception' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception', 'merge_install': False, 'path': '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_perception', 'symlink_install': False, 'test_result_base': None}[0m
+[10.991s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_slam' build argument 'cmake_args' from command line to 'None'
+[10.991s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_slam' build argument 'cmake_target' from command line to 'None'
+[10.991s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_slam' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[10.991s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_slam' build argument 'cmake_clean_cache' from command line to 'False'
+[10.991s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_slam' build argument 'cmake_clean_first' from command line to 'False'
+[10.991s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_slam' build argument 'cmake_force_configure' from command line to 'False'
+[10.991s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_slam' build argument 'ament_cmake_args' from command line to 'None'
+[10.992s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_slam' build argument 'catkin_cmake_args' from command line to 'None'
+[10.992s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_slam' build argument 'catkin_skip_building_tests' from command line to 'False'
+[10.992s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'go2_slam' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam', 'merge_install': False, 'path': '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_slam', 'symlink_install': False, 'test_result_base': None}[0m
+[11.098s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_twist_bridge' build argument 'cmake_args' from command line to 'None'
+[11.098s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_twist_bridge' build argument 'cmake_target' from command line to 'None'
+[11.098s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_twist_bridge' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[11.099s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_twist_bridge' build argument 'cmake_clean_cache' from command line to 'False'
+[11.099s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_twist_bridge' build argument 'cmake_clean_first' from command line to 'False'
+[11.099s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_twist_bridge' build argument 'cmake_force_configure' from command line to 'False'
+[11.099s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_twist_bridge' build argument 'ament_cmake_args' from command line to 'None'
+[11.099s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_twist_bridge' build argument 'catkin_cmake_args' from command line to 'None'
+[11.099s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'go2_twist_bridge' build argument 'catkin_skip_building_tests' from command line to 'False'
+[11.099s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'go2_twist_bridge' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_twist_bridge', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_twist_bridge', 'merge_install': False, 'path': '/home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_twist_bridge', 'symlink_install': False, 'test_result_base': None}[0m
+[11.205s] [34mcolcon.colcon_core.executor[0m [1;30mINFO[0m Executing jobs using 'parallel' executor
+[11.306s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete[0m
+[11.307s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_core' with build type 'ament_cmake'
+[11.307s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_core'
+[11.436s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[11.437s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[11.437s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[12.267s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_description' with build type 'ament_cmake'
+[12.268s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_description'
+[12.401s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[12.401s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[13.356s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_driver' with build type 'ament_cmake'
+[13.357s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_driver'
+[13.496s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[13.497s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[14.378s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_navigation2' with build type 'ament_cmake'
+[14.379s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_navigation2'
+[14.640s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[14.640s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[15.515s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_perception' with build type 'ament_cmake'
+[15.516s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_perception'
+[15.645s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[15.645s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[17.132s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_slam' with build type 'ament_cmake'
+[17.135s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/unitree/new_daohan/go2-nav2-amcl/src/go2_slam'
+[17.294s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[17.295s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[18.228s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core -- -j6 -l6[0m
+[18.274s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description -- -j6 -l6[0m
+[18.318s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_driver -- -j6 -l6[0m
+[18.336s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2 -- -j6 -l6[0m
+[18.372s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception -- -j6 -l6[0m
+[18.518s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam -- -j6 -l6[0m
+[18.534s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description -- -j6 -l6[0m
+[18.579s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description[0m
+[18.591s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core -- -j6 -l6[0m
+[18.602s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core[0m
+[18.634s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(go2_core)
+[18.695s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_core[0m
+[18.889s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core' for CMake module files
+[18.890s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core' for CMake config files
+[18.893s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('go2_core', 'cmake_prefix_path')
+[19.123s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/hook/cmake_prefix_path.ps1'
+[19.136s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/hook/cmake_prefix_path.dsv'
+[19.140s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/hook/cmake_prefix_path.sh'
+[19.144s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/bin'
+[19.145s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/lib/pkgconfig/go2_core.pc'
+[19.145s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/lib/python3.8/site-packages'
+[19.146s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/bin'
+[19.428s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.ps1'
+[19.431s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.dsv'
+[19.433s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.sh'
+[19.437s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.bash'
+[19.447s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.zsh'
+[19.450s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/colcon-core/packages/go2_core)
+[19.828s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(go2_core)
+[20.176s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core' for CMake module files
+[20.177s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core' for CMake config files
+[20.178s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('go2_core', 'cmake_prefix_path')
+[20.384s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/hook/cmake_prefix_path.ps1'
+[20.386s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/hook/cmake_prefix_path.dsv'
+[20.388s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/hook/cmake_prefix_path.sh'
+[20.390s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/bin'
+[20.390s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/lib/pkgconfig/go2_core.pc'
+[20.391s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/lib/python3.8/site-packages'
+[20.391s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/bin'
+[20.548s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.ps1'
+[20.549s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.dsv'
+[20.551s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.sh'
+[20.551s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.bash'
+[20.552s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/go2_core/package.zsh'
+[20.553s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_core/share/colcon-core/packages/go2_core)
+[20.554s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(go2_description)
+[20.557s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description[0m
+[20.655s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description' for CMake module files
+[20.658s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description' for CMake config files
+[20.659s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('go2_description', 'cmake_prefix_path')
+[20.769s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/hook/cmake_prefix_path.ps1'
+[20.771s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/hook/cmake_prefix_path.dsv'
+[20.772s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/hook/cmake_prefix_path.sh'
+[20.773s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/bin'
+[20.774s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/lib/pkgconfig/go2_description.pc'
+[20.774s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/lib/python3.8/site-packages'
+[20.774s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/bin'
+[20.885s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.ps1'
+[20.887s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.dsv'
+[20.888s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.sh'
+[20.889s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.bash'
+[20.889s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.zsh'
+[20.891s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/colcon-core/packages/go2_description)
+[20.996s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(go2_description)
+[21.096s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description' for CMake module files
+[21.100s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description' for CMake config files
+[21.100s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('go2_description', 'cmake_prefix_path')
+[21.198s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/hook/cmake_prefix_path.ps1'
+[21.200s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/hook/cmake_prefix_path.dsv'
+[21.201s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/hook/cmake_prefix_path.sh'
+[21.202s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/bin'
+[21.202s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/lib/pkgconfig/go2_description.pc'
+[21.203s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/lib/python3.8/site-packages'
+[21.203s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/bin'
+[21.303s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.ps1'
+[21.305s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.dsv'
+[21.306s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.sh'
+[21.307s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.bash'
+[21.308s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.zsh'
+[21.308s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/colcon-core/packages/go2_description)
+[21.312s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_twist_bridge' with build type 'ament_cmake'
+[21.313s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/unitree/new_daohan/go2-nav2-amcl/src/base/go2_twist_bridge'
+[21.416s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[21.416s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[22.203s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2 -- -j6 -l6[0m
+[22.212s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_navigation2[0m
+[22.241s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam -- -j6 -l6[0m
+[22.250s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam[0m
+[22.284s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_driver -- -j6 -l6[0m
+[22.295s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_driver[0m
+[22.337s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception -- -j6 -l6[0m
+[22.544s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(go2_perception)
+[22.732s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception' for CMake module files
+[22.733s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception' for CMake config files
+[22.735s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception/bin'
+[22.735s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception/lib/pkgconfig/go2_perception.pc'
+[22.736s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception/lib/python3.8/site-packages'
+[22.736s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception/bin'
+[22.870s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception/share/go2_perception/package.ps1'
+[22.872s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception/share/go2_perception/package.dsv'
+[22.874s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception/share/go2_perception/package.sh'
+[22.876s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception/share/go2_perception/package.bash'
+[22.877s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception/share/go2_perception/package.zsh'
+[22.879s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_perception/share/colcon-core/packages/go2_perception)
+[22.971s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mclosing loop[0m
+[22.972s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mloop closed[0m
+[22.972s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete finished with '2'[0m
+[22.973s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoining thread[0m
+[23.115s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[23.115s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[23.115s] [34mcolcon.colcon_notification.desktop_notification[0m [1;30mINFO[0m Sending desktop notification using 'notify2'
+[23.177s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoined thread[0m
+[23.359s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/local_setup.ps1'
+[23.361s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/unitree/new_daohan/go2-nav2-amcl/src/install/_local_setup_util_ps1.py'
+[23.367s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/setup.ps1'
+[23.584s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/local_setup.sh'
+[23.587s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/unitree/new_daohan/go2-nav2-amcl/src/install/_local_setup_util_sh.py'
+[23.591s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/setup.sh'
+[23.736s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/local_setup.bash'
+[23.738s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/setup.bash'
+[23.875s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/local_setup.zsh'
+[23.886s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/unitree/new_daohan/go2-nav2-amcl/src/install/setup.zsh'

@@ -1,0 +1,1023 @@
+#!/usr/bin/env python3
+"""
+go2_http_server.py — Go2 机器狗 HTTP 控制接口（v2 重写版）
+
+    提供 RESTful API 和飞书 Webhook 双通道控制，覆盖 Go2 全部运动控制能力。
+    支持基础动作、高级组合（跟随、巡航）、相机拍照/视频流。
+    
+    飞书通道：允许飞书私聊和群聊中的用户通过 HTTP API 控制机器狗。
+
+启动（ssh 到 Unitree R1 / Go2 机载电脑执行）：
+    source /opt/ros/foxy/setup.bash
+    source ~/unitree_ros2/cyclonedds_ws/install/setup.bash
+    export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    export CYCLONEDDS_URI="file://$HOME/unitree_ros2/cyclonedds_ws/src/cyclonedds.xml"
+    python3 go2_http_server.py [--port 8001] [--host 0.0.0.0]
+
+API 接口：
+    GET  /health              健康检查
+    GET  /status              全部状态（模式/电池/定位/足力/障碍物）
+    
+    POST /stand               站立
+    POST /sit                 坐下
+    POST /lie                 趴下
+    POST /stop                停止运动
+    POST /recovery            恢复站立（自动故障处理）
+    POST /damping             进入阻尼模式（卸力保护）
+    POST /emergency_stop      紧急停止 → 阻尼模式
+    
+    POST /walk                速度行走  {"vx":0.3, "vy":0, "vyaw":0}
+    POST /turn                原地转向  {"vyaw":0.5}
+    POST /move                复合移动  {"vx":0.3, "vy":0, "vyaw":0.1}
+    POST /jump                跳跃      {"height":0.3}
+    POST /advance             前进指定距离  {"distance":1.0, "speed":0.3}
+    POST /move_to             移动到坐标  {"x":1.0, "y":0.5}
+    
+    POST /action              表演动作  {"name":"hello"} (hello|dance|heart|stretch|...)
+    POST /gait                切换步态  {"name":"trot"} (trot|run|walk|...)
+    POST /speed_level         速度挡位  {"level":2}
+    POST /pose                姿态控制  {"body_height":0.25}
+    
+    POST /photo               拍一张照片（返回图片）
+    GET  /photo               获取最新照片
+    GET  /stream              MJPEG 视频流
+    
+    POST /follow              跟随模式  {"target":"auto"} — 自动跟随最近物体
+    POST /cruise              定位巡航  {"waypoints":[[1,0],[0,1]], "speed":0.3}
+    POST /patrol              自动巡逻  {"radius":2.0, "speed":0.3}
+    
+    POST /feishu_webhook      飞书 Webhook 入口
+
+飞书控制指令（群聊/私聊）：
+    /stand    站起来
+    /sit      坐下
+    /lie      趴下
+    /stop     停下
+    /hello    打招呼
+    /dance    跳舞
+    /walk     往前走（默认 0.3m/s）
+    /back     往后退
+    /left     左转
+    /right    右转
+    /jump     跳跃
+    /status   看状态
+    /photo    拍照
+    /follow   跟随模式
+    /cruise   巡航
+"""
+import os
+import sys
+import time
+import json
+import math
+import threading
+import argparse
+import logging
+import struct
+import io
+import base64
+from pathlib import Path
+from datetime import datetime
+
+# Flask
+from flask import Flask, request, jsonify, Response, send_file
+
+# ROS2
+import rclpy
+from rclpy.node import Node
+from unitree_api.msg import Request as ApiRequest, Response as ApiResponse
+from unitree_go.msg import SportModeState, LowState, WirelessController
+
+# 相机（可选，无相机环境依旧能启动）
+CV2_AVAILABLE = False
+try:
+    import cv2
+    CV2_AVAILABLE = True
+except ImportError:
+    pass
+
+# ============================================================
+# API ID 常量（来自 ros2_sport_client.h — 与 SDK 严格一致）
+# ============================================================
+API_ID = {
+    "Damp":            1001,
+    "BalanceStand":    1002,
+    "StopMove":        1003,
+    "StandUp":         1004,
+    "StandDown":       1005,
+    "RecoveryStand":   1006,
+    "Euler":           1007,
+    "Move":            1008,
+    "Sit":             1009,
+    "RiseSit":         1010,
+    "SpeedLevel":      1015,
+    "Hello":           1016,
+    "Stretch":         1017,
+    "SwitchJoystick":  1027,
+    "Pose":            1028,
+    # 表演
+    "Dance1":          1022,
+    "Dance2":          1023,
+    "Scrape":          1029,
+    "FrontFlip":       1030,
+    "FrontJump":       1031,
+    "FrontPounce":     1032,
+    "Heart":           1036,
+    # 步态
+    "StaticWalk":      1061,
+    "TrotRun":         1062,
+    "EconomicGait":    1063,
+    # 高级
+    "LeftFlip":        2041,
+    "BackFlip":        2043,
+    "Handstand":       2044,
+    "FreeWalk":        2045,
+    "FreeBound":       2046,
+    "FreeJump":        2047,
+    "FreeAvoid":       2048,
+    "ClassicWalk":     2049,
+    "WalkUpright":     2050,
+    "CrossStep":       2051,
+    "AutoRecoverySet": 2054,
+    "AutoRecoveryGet": 2055,
+    "SwitchAvoidMode": 2058,
+}
+
+ACTION_MAP = {
+    "hello":        1016,
+    "stretch":      1017,
+    "dance":        1022,
+    "dance1":       1022,
+    "dance2":       1023,
+    "heart":        1036,
+    "scrape":       1029,
+    "scrape_floor": 1029,
+    "front_flip":   1030,
+    "front_jump":   1031,
+    "front_pounce": 1032,
+    "left_flip":    2041,
+    "back_flip":    2043,
+    "handstand":    2044,
+    "free_bound":   2046,
+    "free_jump":    2047,
+    "walk_upright": 2050,
+    "cross_step":   2051,
+}
+
+GAIT_MAP = {
+    "static_walk":  1061,
+    "trot":         1062,
+    "trot_run":     1062,
+    "run":          1063,
+    "economic":     1063,
+    "free_walk":    2045,
+    "free_bound":   2046,
+    "free_jump":    2047,
+    "free_avoid":   2048,
+    "classic_walk": 2049,
+    "walk_upright": 2050,
+    "cross_step":   2051,
+}
+
+MODE_NAMES = {
+    0: "idle", 1: "balanceStand", 2: "pose",
+    3: "locomotion", 5: "lieDown", 6: "wirelessRemote",
+    7: "damping", 8: "recoveryStand", 10: "sit",
+    11: "frontFlip", 12: "frontJump", 13: "frontPounce",
+}
+GAIT_NAMES = {
+    0: "idle", 1: "trot", 2: "run",
+    3: "climbStair", 4: "downStair", 9: "adjust",
+}
+
+# 飞书 Webhook 秘密令牌（可选，用于验证飞书请求来源）
+FEISHU_SECRET = os.environ.get("FEISHU_SECRET", "")
+
+# ============================================================
+# 辅助
+# ============================================================
+
+def _yaw_diff(a, b):
+    d = a - b
+    while d > math.pi:
+        d -= 2 * math.pi
+    while d < -math.pi:
+        d += 2 * math.pi
+    return d
+
+
+# ============================================================
+# Go2 控制器 — 单例 ROS2 节点（持久化运行）
+# ============================================================
+
+class Go2Controller:
+    """持有 ROS2 节点，缓存状态，发布指令"""
+
+    def __init__(self):
+        self._node = None
+        self._executor = None
+        self._lock = threading.Lock()
+        self._sport_state = None
+        self._low_state = None
+        self._wireless_state = None
+        self._sport_ts = 0.0
+        self._low_ts = 0.0
+        self._running = False
+
+        # 高级模式
+        self._cruise_thread = None
+        self._cruise_stop = threading.Event()
+        self._follow_thread = None
+        self._follow_stop = threading.Event()
+
+        # 相机
+        self._camera = None
+        self._last_photo = None
+        self._last_photo_ts = 0
+
+    def start(self):
+        """初始化 rclpy 并启动 spin 线程（机器人离线也能启动）"""
+        try:
+            rclpy.init(args=sys.argv)
+        except rclpy._rclpy.RCLError:
+            pass
+
+        self._node = Node('go2_http_controller')
+        self._executor = rclpy.executors.MultiThreadedExecutor()
+
+        # 状态订阅
+        self._node.create_subscription(
+            SportModeState, '/sportmodestate',
+            lambda m: self._on_sport_state(m), 10)
+        self._node.create_subscription(
+            SportModeState, '/lf/sportmodestate',
+            lambda m: self._on_sport_state(m), 10)
+        self._node.create_subscription(
+            LowState, '/lowstate',
+            lambda m: self._on_low_state(m), 10)
+        self._node.create_subscription(
+            WirelessController, '/wirelesscontroller',
+            lambda m: self._on_wireless(m), 10)
+
+        # 指令发布者
+        self._sport_pub = self._node.create_publisher(
+            ApiRequest, '/api/sport/request', 10)
+        self._motion_pub = self._node.create_publisher(
+            ApiRequest, '/api/motion_switcher/request', 10)
+
+        self._executor.add_node(self._node)
+        self._running = True
+        threading.Thread(target=self._spin, daemon=True).start()
+
+        for _ in range(50):
+            if self._sport_state is not None and self._low_state is not None:
+                break
+            time.sleep(0.1)
+
+        # 初始化相机
+        self._init_camera()
+
+        if self._sport_state is None:
+            self._node.get_logger().warn("Go2 控制器就绪（等待机器人连接...）")
+        else:
+            self._node.get_logger().info("Go2 控制器就绪")
+
+    def _spin(self):
+        while self._running and rclpy.ok():
+            try:
+                self._executor.spin_once(timeout_sec=0.1)
+            except Exception:
+                break
+
+    def _on_sport_state(self, m):
+        self._sport_state = m
+        self._sport_ts = time.time()
+
+    def _on_low_state(self, m):
+        self._low_state = m
+        self._low_ts = time.time()
+
+    def _on_wireless(self, m):
+        self._wireless_state = m
+
+    # ---------- 相机 ----------
+
+    def _init_camera(self):
+        """尝试初始化摄像头（失败不影响服务启动）"""
+        if not CV2_AVAILABLE:
+            self._node.get_logger().info("相机模块不可用（opencv 未安装）")
+            return
+        try:
+            for dev_idx in range(6):
+                path = f"/dev/video{dev_idx}"
+                if os.path.exists(path):
+                    cap = cv2.VideoCapture(dev_idx, cv2.CAP_V4L2)
+                    if cap.isOpened():
+                        cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+                        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+                        ret, _ = cap.read()
+                        if ret:
+                            self._camera = cap
+                            self._node.get_logger().info(f"相机就绪: {path}")
+                            return
+                        cap.release()
+            self._node.get_logger().warn("未找到可用的摄像头设备")
+        except Exception as e:
+            self._node.get_logger().warn(f"相机初始化失败: {e}")
+
+    def capture_photo(self):
+        """拍照，返回 JPEG bytes，失败返回 None"""
+        if self._camera is None or not CV2_AVAILABLE:
+            return None
+        try:
+            ret, frame = self._camera.read()
+            if not ret:
+                return None
+            ret, buf = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 85])
+            if not ret:
+                return None
+            self._last_photo = buf.tobytes()
+            self._last_photo_ts = time.time()
+            return self._last_photo
+        except Exception:
+            return None
+
+    def gen_frames(self):
+        """MJPEG 视频流生成器"""
+        if self._camera is None or not CV2_AVAILABLE:
+            yield b''
+            return
+        while self._running:
+            ret, frame = self._camera.read()
+            if ret:
+                ret, buf = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 60])
+                if ret:
+                    yield (b'--frame\r\n'
+                           b'Content-Type: image/jpeg\r\n\r\n' +
+                           buf.tobytes() + b'\r\n')
+            time.sleep(0.05)
+
+    # ---------- 查询 ----------
+
+    def get_status(self):
+        s = self._sport_state
+        l = self._low_state
+        status = {
+            "timestamp": time.time(),
+            "sport_age_ms": int((time.time() - self._sport_ts) * 1000),
+            "low_age_ms": int((time.time() - self._low_ts) * 1000),
+            "cruising": self._cruise_thread is not None and self._cruise_thread.is_alive(),
+            "following": self._follow_thread is not None and self._follow_thread.is_alive(),
+        }
+
+        if s is not None:
+            status["mode"] = {
+                "code": int(s.mode),
+                "name": MODE_NAMES.get(int(s.mode), f"unknown({s.mode})"),
+            }
+            status["gait"] = {
+                "code": int(s.gait_type),
+                "name": GAIT_NAMES.get(int(s.gait_type), f"unknown({s.gait_type})"),
+            }
+            status["position"] = {
+                "x": round(float(s.position[0]), 4),
+                "y": round(float(s.position[1]), 4),
+                "z": round(float(s.position[2]), 4),
+            }
+            status["velocity"] = {
+                "vx": round(float(s.velocity[0]), 4),
+                "vy": round(float(s.velocity[1]), 4),
+                "vz": round(float(s.velocity[2]), 4),
+                "vyaw": round(float(s.yaw_speed), 4),
+            }
+            status["attitude"] = {
+                "roll": round(float(s.imu_state.rpy[0]), 4),
+                "pitch": round(float(s.imu_state.rpy[1]), 4),
+                "yaw": round(float(s.imu_state.rpy[2]), 4),
+            }
+            status["body_height"] = round(float(s.body_height), 3)
+            status["foot_raise"] = round(float(s.foot_raise_height), 3)
+            status["progress"] = round(float(s.progress), 2)
+            status["error_code"] = int(s.error_code)
+
+            # 足力
+            foot_force = []
+            for i in range(4):
+                if hasattr(s, 'foot_force') and len(s.foot_force) > i:
+                    foot_force.append(round(float(s.foot_force[i]), 1))
+            if foot_force:
+                status["foot_force"] = foot_force
+
+            # 障碍物
+            obs = s.range_obstacle
+            status["obstacles"] = {
+                "front": round(float(obs[0]), 3) if len(obs) > 0 else 0,
+                "back": round(float(obs[1]), 3) if len(obs) > 1 else 0,
+                "left": round(float(obs[2]), 3) if len(obs) > 2 else 0,
+                "right": round(float(obs[3]), 3) if len(obs) > 3 else 0,
+            }
+
+        if l is not None:
+            bms = l.bms_state
+            status["battery"] = {
+                "soc": int(bms.soc),
+                "voltage_v": round(float(l.power_v), 2),
+                "current_a": round(float(l.power_a), 2),
+                "cycle": int(bms.cycle),
+            }
+
+        if self._last_photo_ts > 0:
+            status["last_photo"] = round(self._last_photo_ts, 1)
+
+        return status
+
+    def health_summary(self):
+        s = self.get_status()
+        bat = s.get("battery", {})
+        att = s.get("attitude", {})
+        obs = s.get("obstacles", {})
+        return {
+            "status": "ok" if s.get("sport_age_ms", 99999) < 5000 else "robot_unreachable",
+            "mode": s.get("mode", {}),
+            "battery": bat,
+            "attitude": att,
+            "obstacles": obs,
+            "cruising": s.get("cruising", False),
+            "following": s.get("following", False),
+        }
+
+    # ---------- 指令 ----------
+
+    def _publish(self, api_id, param=None):
+        """发布一个 ROS2 指令并返回"""
+        with self._lock:
+            req = ApiRequest()
+            req.header.identity.api_id = api_id
+            if param:
+                req.parameter = json.dumps(param)
+            self._sport_pub.publish(req)
+        return {"ok": True, "api_id": api_id, "param": param}
+
+    def stand(self):
+        """站立 — 自动故障恢复"""
+        result = self._publish(API_ID["StandUp"])
+        time.sleep(2.5)
+        ss = self._sport_state
+        if ss is None or ss.body_height < 0.20:
+            self._node.get_logger().warn("StandUp 失败，进入恢复流程…")
+            self._publish(API_ID["AutoRecoverySet"], {"data": True})
+            time.sleep(0.5)
+            self._publish(API_ID["RecoveryStand"])
+            time.sleep(1.5)
+            self._publish(API_ID["BalanceStand"])
+            time.sleep(1.5)
+            return {"ok": True, "recovered": True, "api_id": API_ID["StandUp"]}
+        return result
+
+    def sit(self):
+        return self._publish(API_ID["Sit"])
+
+    def lie(self):
+        return self._publish(API_ID["StandDown"])
+
+    def stop(self):
+        return self._publish(API_ID["StopMove"])
+
+    def recovery(self):
+        self._publish(API_ID["AutoRecoverySet"], {"data": True})
+        time.sleep(0.5)
+        self._publish(API_ID["RecoveryStand"])
+        time.sleep(0.5)
+        return self._publish(API_ID["BalanceStand"])
+
+    def damping(self):
+        return self._publish(API_ID["Damp"])
+
+    def emergency_stop(self):
+        """急停：先停移动，再阻尼，再停所有高级任务"""
+        self.stop_cruise()
+        self.stop_follow()
+        return self._publish(API_ID["Damp"])
+
+    def walk(self, vx=0.3, vy=0.0, vyaw=0.0):
+        self._publish(API_ID["FreeWalk"])
+        time.sleep(0.3)
+        return self._publish(API_ID["Move"], {"x": vx, "y": vy, "z": -vyaw})
+
+    def move(self, vx=0.3, vy=0.0, vyaw=0.0):
+        self._publish(API_ID["FreeWalk"])
+        time.sleep(0.3)
+        return self._publish(API_ID["Move"], {"x": vx, "y": vy, "z": -vyaw})
+
+    def turn(self, vyaw=0.5):
+        self._publish(API_ID["FreeWalk"])
+        time.sleep(0.3)
+        return self._publish(API_ID["Move"], {"x": 0.0, "y": 0.0, "z": -vyaw})
+
+    def jump(self, height=0.3):
+        """跳跃 — 使用 FrontJump API"""
+        return self._publish(API_ID["FrontJump"])
+
+    def advance(self, distance=1.0, speed=0.3):
+        """前进指定距离（米），闭环控制到达后停止"""
+        self.walk(speed, 0, 0)
+        time.sleep(0.5)
+        ss = self._sport_state
+        sx = float(ss.position[0]) if ss else 0.0
+        sy = float(ss.position[1]) if ss else 0.0
+        moved = 0.0
+        start_t = time.time()
+        timeout = max(abs(distance) / abs(speed) * 3, 10)
+        lx, ly = sx, sy
+        stall_checks = 0
+
+        while moved < abs(distance) and (time.time() - start_t) < timeout:
+            self._publish(API_ID["Move"],
+                          {"x": speed, "y": 0.0, "z": 0.0})
+            time.sleep(0.3)
+            ss = self._sport_state
+            if ss:
+                cx, cy = float(ss.position[0]), float(ss.position[1])
+                moved = math.sqrt((cx - sx)**2 + (cy - sy)**2)
+                if math.sqrt((cx - lx)**2 + (cy - ly)**2) < 0.005:
+                    stall_checks += 1
+                else:
+                    stall_checks = 0
+                lx, ly = cx, cy
+                if stall_checks > 12:
+                    break
+        self.stop()
+        return {"ok": True, "target_distance": distance,
+                "actual_distance": round(moved, 3)}
+
+    def move_to(self, x=0.0, y=0.0):
+        """移动到坐标 (x, y) — 基于欧氏距离闭环"""
+        ss = self._sport_state
+        if ss is None:
+            return {"ok": False, "error": "无位置数据"}
+        sx, sy = float(ss.position[0]), float(ss.position[1])
+        dx, dy = x - sx, y - sy
+        dist = math.sqrt(dx**2 + dy**2)
+        if dist < 0.1:
+            return {"ok": True, "distance": 0.0}
+        speed = min(0.35, max(0.1, dist * 0.5))
+        self.walk(speed, 0, 0)
+        start_t = time.time()
+        timeout = max(dist / 0.1 * 3, 15)
+        while time.time() - start_t < timeout:
+            ss = self._sport_state
+            if ss:
+                cx, cy = float(ss.position[0]), float(ss.position[1])
+                remaining = math.sqrt((x - cx)**2 + (y - cy)**2)
+                if remaining < 0.15:
+                    break
+                self._publish(API_ID["Move"],
+                              {"x": speed, "y": 0.0, "z": 0.0})
+            time.sleep(0.3)
+        self.stop()
+        return {"ok": True, "target_x": x, "target_y": y}
+
+    def pose(self, body_height=0.30, foot_raise=0.08):
+        return self._publish(API_ID["Pose"], {"data": False})
+
+    def action(self, name):
+        aid = ACTION_MAP.get(name)
+        if aid is None:
+            return {"ok": False, "error": f"未知动作: {name}",
+                    "available": list(ACTION_MAP.keys())}
+        return self._publish(aid)
+
+    def gait(self, name):
+        aid = GAIT_MAP.get(name)
+        if aid is None:
+            return {"ok": False, "error": f"未知步态: {name}",
+                    "available": list(GAIT_MAP.keys())}
+        return self._publish(aid)
+
+    def speed_level(self, level):
+        return self._publish(API_ID["SpeedLevel"], {"data": level})
+
+    # ===== 高级功能 =====
+
+    def _cruise_loop(self, waypoints, speed):
+        """巡航线程：按航点列表行进"""
+        self._cruise_stop.clear()
+        for i, (wx, wy) in enumerate(waypoints):
+            if self._cruise_stop.is_set():
+                break
+            self._node.get_logger().info(f"巡航: 前往航点 {i+1}/{len(waypoints)} ({wx},{wy})")
+            self.move_to(wx, wy)
+            time.sleep(0.5)
+        self.stop()
+        self._node.get_logger().info("巡航完成")
+
+    def start_cruise(self, waypoints, speed=0.3):
+        """启动巡航"""
+        if self._cruise_thread and self._cruise_thread.is_alive():
+            return {"ok": False, "error": "巡航已在进行中"}
+        self._cruise_thread = threading.Thread(
+            target=self._cruise_loop, args=(waypoints, speed), daemon=True)
+        self._cruise_thread.start()
+        return {"ok": True, "waypoints": waypoints, "speed": speed}
+
+    def stop_cruise(self):
+        """停止巡航"""
+        self._cruise_stop.set()
+        self.stop()
+        return {"ok": True}
+
+    def _follow_loop(self):
+        """跟随模式：持续朝向最近障碍物（模拟跟随）"""
+        self._follow_stop.clear()
+        self._node.get_logger().info("跟随模式启动")
+        while not self._follow_stop.is_set():
+            ss = self._sport_state
+            if ss and len(ss.range_obstacle) > 3:
+                # 前向障碍物距离
+                front = float(ss.range_obstacle[0])
+                left = float(ss.range_obstacle[2])
+                right = float(ss.range_obstacle[3])
+
+                if front > 3.0 or front < 0.01:
+                    # 前方无障碍 — 缓慢前进搜索
+                    self._publish(API_ID["Move"],
+                                  {"x": 0.1, "y": 0.0, "z": 0.0})
+                elif front < 0.4:
+                    # 太近了 — 后退
+                    self._publish(API_ID["Move"],
+                                  {"x": -0.15, "y": 0.0, "z": 0.0})
+                else:
+                    # 正常距离 — 朝向
+                    vyaw = 0.0
+                    if left < 1.0 and left > 0.01:
+                        vyaw = -0.3  # 右转避开左侧障碍
+                    elif right < 1.0 and right > 0.01:
+                        vyaw = 0.3   # 左转避开右侧障碍
+                    self._publish(API_ID["Move"],
+                                  {"x": 0.15, "y": 0.0, "z": vyaw})
+            time.sleep(0.3)
+        self.stop()
+        self._node.get_logger().info("跟随模式结束")
+
+    def start_follow(self, target="auto"):
+        """启动跟随模式"""
+        if self._follow_thread and self._follow_thread.is_alive():
+            return {"ok": False, "error": "跟随模式已在进行中"}
+        # 先站起来
+        self.stand()
+        time.sleep(1.0)
+        self._follow_thread = threading.Thread(
+            target=self._follow_loop, daemon=True)
+        self._follow_thread.start()
+        return {"ok": True, "target": target}
+
+    def stop_follow(self):
+        self._follow_stop.set()
+        self.stop()
+        return {"ok": True}
+
+    def patrol(self, radius=2.0, speed=0.3):
+        """自动巡逻：围绕原点画方圈"""
+        pts = [(radius, 0), (radius, radius),
+               (0, radius), (0, 0)]
+        return self.start_cruise(pts, speed)
+
+    def shutdown(self):
+        self.stop_cruise()
+        self.stop_follow()
+        self._running = False
+        if self._camera:
+            self._camera.release()
+        if self._node:
+            self._node.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
+
+
+# ============================================================
+# Flask HTTP 服务
+# ============================================================
+
+def create_app(controller: Go2Controller):
+    app = Flask(__name__)
+    log = logging.getLogger('werkzeug')
+    log.setLevel(logging.WARNING)
+
+    # ---------- 查询 ----------
+
+    @app.route("/health", methods=["GET"])
+    def health():
+        return jsonify(controller.health_summary())
+
+    @app.route("/status", methods=["GET"])
+    def status():
+        return jsonify(controller.get_status())
+
+    # ---------- 基础动作 ----------
+
+    @app.route("/stand", methods=["POST"])
+    def stand():
+        return jsonify(controller.stand())
+
+    @app.route("/sit", methods=["POST"])
+    def sit():
+        return jsonify(controller.sit())
+
+    @app.route("/lie", methods=["POST"])
+    def lie():
+        return jsonify(controller.lie())
+
+    @app.route("/stop", methods=["POST"])
+    def stop():
+        return jsonify(controller.stop())
+
+    @app.route("/recovery", methods=["POST"])
+    def recovery():
+        return jsonify(controller.recovery())
+
+    @app.route("/damping", methods=["POST"])
+    def damping():
+        return jsonify(controller.damping())
+
+    @app.route("/emergency_stop", methods=["POST"])
+    def emergency_stop():
+        return jsonify(controller.emergency_stop())
+
+    # ---------- 移动 ----------
+
+    @app.route("/walk", methods=["POST"])
+    def walk():
+        data = request.get_json(silent=True) or {}
+        vx = float(data.get("vx", 0.3))
+        vy = float(data.get("vy", 0.0))
+        vyaw = float(data.get("vyaw", 0.0))
+        result = controller.walk(vx, vy, vyaw)
+        time.sleep(0.8)
+        ss = controller._sport_state
+        if ss and vx > 0 and abs(float(ss.velocity[0])) < 0.01:
+            return jsonify({"ok": False, "error": "机器人未响应",
+                            "detail": result}), 503
+        return jsonify(result)
+
+    @app.route("/turn", methods=["POST"])
+    def turn():
+        data = request.get_json(silent=True) or {}
+        vyaw = float(data.get("vyaw", 0.5))
+        return jsonify(controller.turn(vyaw))
+
+    @app.route("/move", methods=["POST"])
+    def move():
+        data = request.get_json(silent=True) or {}
+        vx = float(data.get("vx", 0.3))
+        vy = float(data.get("vy", 0.0))
+        vyaw = float(data.get("vyaw", 0.0))
+        return jsonify(controller.move(vx, vy, vyaw))
+
+    @app.route("/jump", methods=["POST"])
+    def jump():
+        data = request.get_json(silent=True) or {}
+        height = float(data.get("height", 0.3))
+        return jsonify(controller.jump(height))
+
+    @app.route("/advance", methods=["POST"])
+    def advance():
+        data = request.get_json(silent=True) or {}
+        dist = float(data.get("distance", data.get("dist", 1.0)))
+        speed = float(data.get("speed", data.get("vx", 0.3)))
+        return jsonify(controller.advance(dist, speed))
+
+    @app.route("/move_to", methods=["POST"])
+    def move_to():
+        data = request.get_json(silent=True) or {}
+        x = float(data.get("x", 0.0))
+        y = float(data.get("y", 0.0))
+        return jsonify(controller.move_to(x, y))
+
+    # ---------- 动作/步态/姿态 ----------
+
+    @app.route("/action", methods=["POST"])
+    def action():
+        data = request.get_json(silent=True) or {}
+        name = data.get("name", "").lower().strip()
+        return jsonify(controller.action(name))
+
+    @app.route("/gait", methods=["POST"])
+    def gait():
+        data = request.get_json(silent=True) or {}
+        name = data.get("name", "trot").lower().strip()
+        return jsonify(controller.gait(name))
+
+    @app.route("/speed_level", methods=["POST"])
+    def speed_level():
+        data = request.get_json(silent=True) or {}
+        level = int(data.get("level", 2))
+        return jsonify(controller.speed_level(level))
+
+    @app.route("/pose", methods=["POST"])
+    def pose():
+        data = request.get_json(silent=True) or {}
+        body_height = float(data.get("body_height", 0.30))
+        foot_raise = float(data.get("foot_raise", 0.08))
+        return jsonify(controller.pose(body_height, foot_raise))
+
+    # ---------- 相机 ----------
+
+    @app.route("/photo", methods=["GET", "POST"])
+    def photo():
+        if request.method == "POST" or request.args.get("capture"):
+            img = controller.capture_photo()
+            if img:
+                b64 = base64.b64encode(img).decode()
+                return jsonify({
+                    "ok": True,
+                    "size": len(img),
+                    "image_base64": b64,
+                    "timestamp": controller._last_photo_ts,
+                })
+            return jsonify({"ok": False, "error": "拍照失败"}), 500
+
+        # GET: 返回最新照片
+        if controller._last_photo:
+            return Response(controller._last_photo,
+                            mimetype='image/jpeg',
+                            headers={
+                                "Cache-Control": "no-cache",
+                                "X-Timestamp": str(controller._last_photo_ts),
+                            })
+        return jsonify({"ok": False, "error": "尚无照片"}), 404
+
+    @app.route("/stream", methods=["GET"])
+    def stream():
+        return Response(controller.gen_frames(),
+                        mimetype='multipart/x-mixed-replace; boundary=frame')
+
+    # ---------- 高级模式 ----------
+
+    @app.route("/cruise", methods=["POST"])
+    def cruise():
+        data = request.get_json(silent=True) or {}
+        waypoints = data.get("waypoints", [[1, 0], [0, 1]])
+        speed = float(data.get("speed", 0.3))
+        return jsonify(controller.start_cruise(waypoints, speed))
+
+    @app.route("/patrol", methods=["POST"])
+    def patrol():
+        data = request.get_json(silent=True) or {}
+        radius = float(data.get("radius", 2.0))
+        speed = float(data.get("speed", 0.3))
+        return jsonify(controller.patrol(radius, speed))
+
+    @app.route("/follow", methods=["POST"])
+    def follow():
+        data = request.get_json(silent=True) or {}
+        target = data.get("target", "auto")
+        return jsonify(controller.start_follow(target))
+
+    @app.route("/stop_cruise", methods=["POST"])
+    def stop_cruise():
+        return jsonify(controller.stop_cruise())
+
+    @app.route("/stop_follow", methods=["POST"])
+    def stop_follow():
+        return jsonify(controller.stop_follow())
+
+    # ---------- 飞书 Webhook ----------
+
+    FEISHU_CMD_MAP = {
+        "stand":      ("站立", lambda: controller.stand()),
+        "sit":        ("坐下", lambda: controller.sit()),
+        "lie":        ("趴下", lambda: controller.lie()),
+        "stop":       ("停下", lambda: controller.stop()),
+        "hello":      ("打招呼", lambda: controller.action("hello")),
+        "dance":      ("跳舞", lambda: controller.action("dance")),
+        "heart":      ("比心", lambda: controller.action("heart")),
+        "stretch":    ("伸展", lambda: controller.action("stretch")),
+        "walk":       ("往前走", lambda: controller.walk(0.3, 0, 0)),
+        "back":       ("往后退", lambda: controller.walk(-0.2, 0, 0)),
+        "left":       ("左转", lambda: controller.turn(0.5)),
+        "right":      ("右转", lambda: controller.turn(-0.5)),
+        "jump":       ("跳跃", lambda: controller.jump()),
+        "status":     ("查询状态", lambda: controller.health_summary()),
+        "photo":      ("拍照", lambda: controller.capture_photo()),
+        "recovery":   ("恢复站立", lambda: controller.recovery()),
+        "damping":    ("阻尼卸力", lambda: controller.damping()),
+        "emergency":  ("紧急停止", lambda: controller.emergency_stop()),
+        "follow":     ("跟随模式", lambda: controller.start_follow()),
+        "cruise":     ("巡航", lambda: controller.start_cruise([[1,0],[0,1]], 0.3)),
+        "patrol":     ("巡逻", lambda: controller.patrol()),
+        "unfollow":   ("停止跟随", lambda: controller.stop_follow()),
+        "uncruise":   ("停止巡航", lambda: controller.stop_cruise()),
+    }
+
+    @app.route("/feishu_webhook", methods=["POST"])
+    def feishu_webhook():
+        """
+        飞书 Webhook 入口。
+        要求飞书自定义机器人配置中设置 Webhook URL 指向此端点。
+        请求体格式（飞书机器人标准）：
+            {"text": "/stand 站起来"}
+        响应格式：飞书消息文本
+        """
+        data = request.get_json(silent=True) or {}
+        text = data.get("text", data.get("content", "")).strip().lower()
+
+        # 提取指令（支持 "/stand" 或 "stand"）
+        cmd = text.lstrip("/").split()[0] if text else ""
+        args = text.split()[1:] if len(text.split()) > 1 else []
+
+        handler = FEISHU_CMD_MAP.get(cmd)
+        if handler is None:
+            available = " | ".join(f"/{k}" for k in FEISHU_CMD_MAP.keys())
+            return jsonify({
+                "reply": f"未知指令: /{cmd}\n可用指令: {available}"
+            })
+
+        name, func = handler
+        try:
+            result = func()
+            if cmd == "status" and isinstance(result, dict):
+                s = result
+                bat = s.get("battery", {})
+                mode = s.get("mode", {}).get("name", "?")
+                pos = s.get("position", {})
+                reply = (
+                    f"🤖 Go2 状态\n"
+                    f"模式: {mode}\n"
+                    f"电量: {bat.get('soc', '?')}% ({bat.get('voltage_v', '?')}V)\n"
+                    f"位置: ({pos.get('x', 0):.2f}, {pos.get('y', 0):.2f})\n"
+                    f"跟随: {'是' if s.get('following') else '否'}\n"
+                    f"巡航: {'是' if s.get('cruising') else '否'}"
+                )
+                return jsonify({"reply": reply})
+
+            if cmd == "photo":
+                if result:
+                    b64 = base64.b64encode(result).decode()
+                    return jsonify({
+                        "reply": f"📸 拍照成功",
+                        "image_base64": b64,
+                    })
+                return jsonify({"reply": "❌ 拍照失败，相机未就绪"})
+
+            ok = result.get("ok", False)
+            if ok:
+                return jsonify({"reply": f"✅ {name} 成功"})
+            else:
+                return jsonify({
+                    "reply": f"❌ {name} 失败: {result.get('error', '未知')}"
+                })
+        except Exception as e:
+            return jsonify({"reply": f"❌ 执行出错: {e}"})
+
+    @app.route("/", methods=["GET"])
+    def index():
+        return jsonify({
+            "service": "Go2 HTTP Control API v2",
+            "docs": "GET /health, GET /status, POST /stand, ...",
+            "feishu": "POST /feishu_webhook",
+            "camera": "GET/POST /photo, GET /stream",
+            "advanced": "POST /follow, /cruise, /patrol, /advance, /move_to, /jump",
+        })
+
+    return app
+
+
+# ============================================================
+# 启动入口
+# ============================================================
+
+def main():
+    parser = argparse.ArgumentParser(description="Go2 HTTP 控制接口 v2")
+    parser.add_argument("--port", type=int, default=8001,
+                        help="监听端口 (默认: 8001)")
+    parser.add_argument("--host", type=str, default="0.0.0.0",
+                        help="监听地址 (默认: 0.0.0.0)")
+    parser.add_argument("--debug", action="store_true",
+                        help="调试模式（不要用，ROS2+线程会出问题）")
+    args = parser.parse_args()
+
+    # 静默 ROS2 日志
+    os.environ.setdefault("RCUTILS_CONSOLE_OUTPUT_FORMAT",
+                          "{time} [{severity}] {name}: {message}")
+    rclpy_logger = logging.getLogger('rclpy')
+    rclpy_logger.setLevel(logging.WARNING)
+
+    controller = Go2Controller()
+    controller.start()
+
+    app = create_app(controller)
+
+    print(f"\n🚀 Go2 HTTP API v2 启动")
+    print(f"   ➜ http://{args.host}:{args.port}")
+    print(f"   ➜ 飞书 Webhook: POST http://{args.host}:{args.port}/feishu_webhook")
+    print(f"   ➜ 健康检查:    curl http://localhost:{args.port}/health")
+    print(f"   ➜ 状态查询:    curl http://localhost:{args.port}/status")
+    print(f"   ➜ 拍照:        curl http://localhost:{args.port}/photo")
+    print(f"   ➜ 视频流:      http://localhost:{args.port}/stream")
+
+    app.run(host=args.host, port=args.port, debug=args.debug,
+            threaded=True, use_reloader=False)
+
+
+if __name__ == "__main__":
+    main()

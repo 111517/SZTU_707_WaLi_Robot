@@ -1,0 +1,63 @@
+[0.847s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake /home/unitree/new_daohan/go2-nav2-amcl/src/go2_slam -DCMAKE_INSTALL_PREFIX=/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam
+[2.864s] -- The C compiler identification is GNU 9.4.0
+[2.865s] -- The CXX compiler identification is GNU 9.4.0
+[2.865s] -- Detecting C compiler ABI info
+[2.865s] -- Detecting C compiler ABI info - done
+[2.865s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.865s] -- Detecting C compile features
+[2.865s] -- Detecting C compile features - done
+[2.866s] -- Detecting CXX compiler ABI info
+[2.866s] -- Detecting CXX compiler ABI info - done
+[2.866s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.866s] -- Detecting CXX compile features
+[2.866s] -- Detecting CXX compile features - done
+[2.866s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[2.866s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3")
+[2.866s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.867s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[2.875s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[2.876s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[2.876s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[2.876s]   the cmake_policy command to set the policy and suppress this warning.
+[2.876s] 
+[2.876s] Call Stack (most recent call first):
+[2.876s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[2.876s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[2.877s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[2.877s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[2.877s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[2.877s]   CMakeLists.txt:9 (find_package)
+[2.878s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.878s] [0m
+[3.001s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.004s] -- Added test 'lint_cmake' to check CMake code style
+[3.006s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[3.010s] -- Added test 'xmllint' to check XML markup files
+[3.014s] -- Configuring done (2.2s)
+[3.023s] -- Generating done (0.0s)
+[3.026s] -- Build files have been written to: /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam
+[3.039s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake /home/unitree/new_daohan/go2-nav2-amcl/src/go2_slam -DCMAKE_INSTALL_PREFIX=/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam
+[3.050s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam -- -j6 -l6
+[3.144s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam -- -j6 -l6
+[3.146s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam
+[3.368s] -- Install configuration: ""
+[3.368s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/launch
+[3.368s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/launch/go2_slamtoolbox.launch.py
+[3.369s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/config
+[3.369s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/config/mapper_params_online_async.yaml
+[3.369s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/ament_index/resource_index/package_run_dependencies/go2_slam
+[3.369s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/ament_index/resource_index/parent_prefix_path/go2_slam
+[3.369s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/environment/ament_prefix_path.sh
+[3.370s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/environment/ament_prefix_path.dsv
+[3.370s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/environment/path.sh
+[3.370s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/environment/path.dsv
+[3.370s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/local_setup.bash
+[3.370s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/local_setup.sh
+[3.371s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/local_setup.zsh
+[3.371s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/local_setup.dsv
+[3.371s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/package.dsv
+[3.371s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/ament_index/resource_index/packages/go2_slam
+[3.371s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/cmake/go2_slamConfig.cmake
+[3.371s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/cmake/go2_slamConfig-version.cmake
+[3.371s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_slam/share/go2_slam/package.xml
+[5.294s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_slam

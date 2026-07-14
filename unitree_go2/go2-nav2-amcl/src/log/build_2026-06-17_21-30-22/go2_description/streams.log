@@ -1,0 +1,113 @@
+[4.420s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake /home/unitree/new_daohan/go2-nav2-amcl/src/go2_description -DCMAKE_INSTALL_PREFIX=/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description
+[4.630s] -- The C compiler identification is GNU 9.4.0
+[4.785s] -- The CXX compiler identification is GNU 9.4.0
+[4.847s] -- Detecting C compiler ABI info
+[5.055s] -- Detecting C compiler ABI info - done
+[5.111s] -- Check for working C compiler: /usr/bin/cc - skipped
+[5.111s] -- Detecting C compile features
+[5.112s] -- Detecting C compile features - done
+[5.121s] -- Detecting CXX compiler ABI info
+[5.321s] -- Detecting CXX compiler ABI info - done
+[5.375s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[5.377s] -- Detecting CXX compile features
+[5.380s] -- Detecting CXX compile features - done
+[5.390s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[5.473s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[5.474s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[5.474s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[5.474s]   the cmake_policy command to set the policy and suppress this warning.
+[5.475s] 
+[5.475s] Call Stack (most recent call first):
+[5.475s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[5.475s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[5.475s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[5.475s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[5.475s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[5.475s]   CMakeLists.txt:9 (find_package)
+[5.475s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[5.476s] [0m
+[5.486s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3")
+[5.487s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[6.162s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[6.470s] -- Added test 'flake8' to check Python code syntax and style conventions
+[6.473s] -- Added test 'lint_cmake' to check CMake code style
+[6.475s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[6.482s] -- Added test 'xmllint' to check XML markup files
+[6.487s] -- Configuring done (2.1s)
+[6.497s] -- Generating done (0.0s)
+[6.500s] -- Build files have been written to: /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description
+[6.529s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake /home/unitree/new_daohan/go2-nav2-amcl/src/go2_description -DCMAKE_INSTALL_PREFIX=/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description
+[6.531s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description -- -j6 -l6
+[6.713s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description -- -j6 -l6
+[6.737s] Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description
+[6.769s] -- Install configuration: ""
+[6.770s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/launch
+[6.771s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/launch/display.launch.py
+[6.771s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf
+[6.781s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/Amended_collision_model.png
+[6.792s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/Normal_collision_model.png
+[6.794s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/go2_description.urdf
+[6.794s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history
+[6.797s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905115226.urdf
+[6.797s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905112752.urdf
+[6.797s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905115300.urdf
+[6.798s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905112944.urdf
+[6.801s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230904193711.urdf
+[6.801s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905112143.urdf
+[6.802s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905113633.urdf
+[6.802s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905112749.urdf
+[6.802s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230904144240.urdf
+[6.802s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905115022.urdf
+[6.803s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905113754.urdf
+[6.803s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905114759.urdf
+[6.804s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905113000.urdf
+[6.804s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230904182446.urdf
+[6.805s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230904193653.urdf
+[6.805s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230904193710.urdf
+[6.805s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905113059.urdf
+[6.805s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905112735.urdf
+[6.808s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905112047.urdf
+[6.808s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905113755.urdf
+[6.809s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905113840.urdf
+[6.809s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905115040.urdf
+[6.809s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230904193644.urdf
+[6.809s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905112217.urdf
+[6.809s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230904193705.urdf
+[6.810s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905114819.urdf
+[6.810s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905115021.urdf
+[6.810s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905115313.urdf
+[6.810s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230904193628.urdf
+[6.810s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905113839.urdf
+[6.810s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/urdf/.history/go2_description_20230905115215.urdf
+[6.810s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/dae
+[6.810s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/dae/hip.dae
+[6.824s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/dae/calf_mirror.dae
+[6.828s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/dae/base.dae
+[6.859s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/dae/thigh.dae
+[6.871s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/dae/foot.dae
+[6.874s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/dae/calf.dae
+[6.878s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/dae/thigh_mirror.dae
+[6.891s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/meshes
+[6.891s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/meshes/hip.dae
+[6.905s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/meshes/calf_mirror.dae
+[6.909s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/meshes/thigh.dae
+[6.921s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/meshes/trunk.dae
+[6.952s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/meshes/foot.dae
+[6.954s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/meshes/calf.dae
+[6.960s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/meshes/thigh_mirror.dae
+[6.971s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/ament_index/resource_index/package_run_dependencies/go2_description
+[6.972s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/ament_index/resource_index/parent_prefix_path/go2_description
+[6.972s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/environment/ament_prefix_path.sh
+[6.973s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/environment/ament_prefix_path.dsv
+[6.973s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/environment/path.sh
+[6.973s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/environment/path.dsv
+[6.974s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/local_setup.bash
+[6.974s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/local_setup.sh
+[6.975s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/local_setup.zsh
+[6.975s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/local_setup.dsv
+[6.975s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.dsv
+[6.977s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/ament_index/resource_index/packages/go2_description
+[6.977s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/cmake/go2_descriptionConfig.cmake
+[6.977s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/cmake/go2_descriptionConfig-version.cmake
+[6.978s] -- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_description/share/go2_description/package.xml
+[7.018s] Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --install /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_description

@@ -1,0 +1,7 @@
+[01m[K/home/unitree/new_daohan/go2-nav2-amcl/src/go2_perception/src/pointcloud_to_laserscan_node.cpp:52:10:[m[K [01;31m[Kfatal error: [m[Ktf2_sensor_msgs/tf2_sensor_msgs.hpp: 没有那个文件或目录
+   52 | #include [01;31m[K"tf2_sensor_msgs/tf2_sensor_msgs.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/pointcloud_to_laserscan.dir/build.make:76：CMakeFiles/pointcloud_to_laserscan.dir/src/pointcloud_to_laserscan_node.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:141：CMakeFiles/pointcloud_to_laserscan.dir/all] 错误 2
+make: *** [Makefile:146：all] 错误 2

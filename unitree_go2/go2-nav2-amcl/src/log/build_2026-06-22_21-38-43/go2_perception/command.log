@@ -1,0 +1,2 @@
+Invoking command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception -- -j6 -l6
+Invoked command in '/home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/local/bin/cmake --build /home/unitree/new_daohan/go2-nav2-amcl/src/build/go2_perception -- -j6 -l6

@@ -1,0 +1,31 @@
+[ 33%] Built target driver
+[ 66%] Built target lowstate_to_imu
+[100%] Built target footprint_to_link
+-- Install configuration: ""
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/lib/go2_driver/driver
+-- Set non-toolchain portion of runtime path of "/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/lib/go2_driver/driver" to ""
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/lib/go2_driver/footprint_to_link
+-- Set non-toolchain portion of runtime path of "/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/lib/go2_driver/footprint_to_link" to ""
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/lib/go2_driver/lowstate_to_imu
+-- Set non-toolchain portion of runtime path of "/home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/lib/go2_driver/lowstate_to_imu" to ""
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/launch
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/launch/driver.launch.py
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/params
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/params/driver.yaml
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/rviz
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/rviz/display.rviz
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/ament_index/resource_index/package_run_dependencies/go2_driver
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/ament_index/resource_index/parent_prefix_path/go2_driver
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/environment/ament_prefix_path.sh
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/environment/ament_prefix_path.dsv
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/environment/path.sh
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/environment/path.dsv
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/local_setup.bash
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/local_setup.sh
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/local_setup.zsh
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/local_setup.dsv
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/package.dsv
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/ament_index/resource_index/packages/go2_driver
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/cmake/go2_driverConfig.cmake
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/cmake/go2_driverConfig-version.cmake
+-- Installing: /home/unitree/new_daohan/go2-nav2-amcl/src/install/go2_driver/share/go2_driver/package.xml
