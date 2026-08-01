@@ -4,6 +4,7 @@ import { DroneBatteryPanel } from '../panels/DroneBatteryPanel';
 import { DroneGPSPanel } from '../panels/DroneGPSPanel';
 import { DroneFlightPanel } from '../panels/DroneFlightPanel';
 import { DroneSystemPanel } from '../panels/DroneSystemPanel';
+import { CameraVideoPanel } from '../panels/CameraVideoPanel';
 import { StatCard } from '../panels/StatCard';
 import type { RobotFleetEntry } from '../../types/FleetTypes';
 
@@ -15,6 +16,11 @@ export function DronePage({ robots }: DronePageProps) {
   const drone = robots.find(r => r.type === 'uav' && r.status === 'online');
   const conn = drone?.connection ?? robots.find(r => r.status === 'online')?.connection ?? null;
   const [topicCount, setTopicCount] = useState(conn?.getProviderTopics().length ?? 0);
+
+  // 视频流 URL：NX web_video_server → T265 鱼眼
+  const videoSrc = drone?.ip
+    ? `http://${drone.ip}:8080/stream?topic=/camera/fisheye1/image_raw&type=mjpeg`
+    : undefined;
 
   useEffect(() => {
     if (!conn) { setTopicCount(0); return; }
@@ -52,6 +58,7 @@ export function DronePage({ robots }: DronePageProps) {
       <div className="grid-3" style={{ marginBottom: 16 }}>
         <DroneFlightPanel connection={conn} />
         <DroneSystemPanel connection={conn} />
+        <CameraVideoPanel connection={conn} videoSrc={videoSrc} />
       </div>
     </div>
   );

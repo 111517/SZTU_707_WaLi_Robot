@@ -43,7 +43,7 @@ export function DroneBatteryPanel({ connection }: Props) {
 
   return (
     <DeviceStatusCard title="电池" icon="🔋" status={status} metrics={[
-      { label: '电量', value: percent != null ? `${percent.toFixed(0)}%` : '-', warn: percent != null && percent < 20 },
+      { label: '电量', value: percent != null ? `${(percent * 100).toFixed(0)}%` : '-', warn: percent != null && percent < 20 },
       { label: '电压', value: voltage != null ? `${voltage.toFixed(1)}V` : '-' },
       { label: '电流', value: current != null ? `${current.toFixed(1)}A` : '-' },
     ]} />

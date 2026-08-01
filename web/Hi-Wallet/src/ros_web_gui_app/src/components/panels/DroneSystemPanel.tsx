@@ -32,10 +32,11 @@ export function DroneSystemPanel({ connection }: Props) {
       };
 
       findAndSub(['/mavros/sys_status'], (msg) => {
-        setCpuLoad(numberOrNull((msg as Record<string, unknown>).load));
-        setVoltage(numberOrNull((msg as Record<string, unknown>).voltage));
-        setDropRate(numberOrNull((msg as Record<string, unknown>).drop_rate));
-        setErrors(numberOrNull((msg as Record<string, unknown>).errors_count1));
+        const m = msg as Record<string, unknown>;
+        setCpuLoad(numberOrNull(m.load));
+        setVoltage(numberOrNull(m.voltage_battery));
+        setDropRate(numberOrNull(m.drop_rate_comm));
+        setErrors(numberOrNull(m.errors_count1));
       });
 
       findAndSub(['/mavros/radio_status'], (msg) => {
@@ -58,7 +59,7 @@ export function DroneSystemPanel({ connection }: Props) {
 
   return (
     <DeviceStatusCard title="系统 / 遥控" icon="📡" status={status} metrics={[
-      { label: 'CPU负载', value: cpuLoad != null ? `${(cpuLoad * 100).toFixed(0)}%` : '-' },
+      { label: 'CPU负载', value: cpuLoad != null ? `${(cpuLoad / 10).toFixed(1)}%` : '-' },
       { label: '飞控电压', value: voltage != null ? `${(voltage / 1000).toFixed(1)}V` : '-' },
       { label: '丢包率', value: dropRate != null ? `${dropRate.toFixed(2)}%` : '-', warn: dropRate != null && dropRate > 1 },
       { label: '错误数', value: errors != null ? String(errors) : '-', warn: errors != null && errors > 0 },
